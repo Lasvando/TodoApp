@@ -1,0 +1,40 @@
+@model Item
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="mb-3 row p-1">
+        <label asp-for="Title" class="p-0"></label>
+        <input asp-for="Title" class="form-control">
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 row p-1">
+        <label asp-for="Description" class="p-0"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 row p-1">
+        <label asp-for="IssueDate" class="p-0"></label>
+        <input type="date" asp-for="IssueDate" class="form-control">
+        <span asp-validation-for="IssueDate" class="text-danger"></span>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 col-6">
+            <button type="submit" class="btn btn-primary form-control">Update</button>
+        </div>
+        <div class="col-md-3 col-6">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-info border form-control">Back</a>
+        </div>
+    </div>
+</form>
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}
